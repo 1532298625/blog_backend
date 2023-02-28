@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.graduation_project.dao.mapper.SysUserMapper">
+
+    <select id="isUserRegister" resultType="com.graduation_project.dao.entity.User">
+
+        SELECT
+            `id`
+        FROM
+            `user`
+        WHERE
+            `nick_name` = #{nickName}
+           or
+            `email` = #{email}
+        ;
+    </select>
+    <select id="getSexData" resultType="java.util.Map">
+        SELECT
+            sex,count(sex) as num
+        FROM
+            `user`
+        GROUP BY
+            sex
+        ;
+    </select>
+    <select id="getArticleData" resultType="java.util.Map">
+        SELECT
+            id,title,view_counts
+        FROM
+            `article`
+        ORDER BY
+            view_counts DESC
+        LIMIT
+            5
+        ;
+    </select>
+    <select id="getAllArticleData" resultType="java.util.Map">
+        SELECT
+            id,view_counts
+        FROM
+            `article`
+        ;
+    </select>
+</mapper>

@@ -1,0 +1,47 @@
+server:
+  port: 8081
+  address: 0.0.0.0
+
+spring:
+  data:
+    mongodb:
+      host: 121.37.5.248
+      port: 27017
+      database: article
+      username: "dobby"
+      password: "tj200105"
+
+  #        uri: mongodb://localhost:27017/article
+
+  #mysql 数据库配置
+  datasource:
+    url: jdbc:mysql://121.37.5.248:3306/blog_project?characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: tj200105
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # redis配置
+  redis:
+    host: 124.70.25.229
+    port: 6379
+    password: 123456
+  #  邮件
+  mail:
+    host: smtp.qq.com
+    username: 1532298625@qq.com
+    #需要在qq邮箱申请smtp服务时获取。
+    password: vkpycpoonjlfhcdj
+
+#mybatis-plus:
+mybatis-plus:
+  global-config:
+    db-config:
+      #逻辑删除
+      logic-delete-field: del_flag
+      #删除值
+      logic-delete-value: 1
+      #不删除的值
+      logic-not-delete-value: 0
+  configuration:
+    #日志显示
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
